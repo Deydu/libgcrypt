@@ -58,7 +58,7 @@ is_cpuid_available(void)
      "pushl %%ecx\n\t"           /* Restore flags from ECX.  */
      "popf\n\t"
      "xorl %%eax, %%ecx\n\t"     /* Compare flags against saved flags.  */
-     "jz 1f\n\t"       /* Toggling did not work, thus no CPUID.  */
+     "jz 1f\n\t"                 /* Toggling did not work, thus no CPUID.  */
      "movl $1, %0\n"             /* Worked. true -> HAS_CPUID.  */
      "1:\n\t"
      : "+r" (has_cpuid)
